@@ -146,7 +146,40 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: (state is! LoginLoadingState
                     ? _onLoginButtonPressed
                     : null),
-                child: Text('Login', style: darkprimaryPBold),
+                child: Stack(children: [
+                  Container(
+                    child: state is LoginLoadingState
+                        ? CircularProgressIndicator(
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(DarwinRed),
+                          )
+                        : Text(
+                            'Login',
+                            style: darkprimaryPBold,
+                          ),
+                  )
+                ]),
+              ),
+            ),
+            Container(
+              padding: spacer.top.xs,
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.white,
+                  highlightColor: DarwinRed,
+                  onTap: () {},
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'New? ',
+                      style: primaryPBold,
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'Learn how Dubs works', style: uprimaryPBold),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
@@ -210,11 +243,6 @@ class _LoginFormState extends State<LoginForm> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       _buildEmailForm(state),
-                      Container(
-                        child: state is LoginLoadingState
-                            ? CircularProgressIndicator()
-                            : null,
-                      )
                     ],
                   ),
                 ),
