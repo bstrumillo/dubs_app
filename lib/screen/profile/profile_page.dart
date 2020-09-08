@@ -145,10 +145,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   color: DarwinRed),
                                               child: Align(
                                                 alignment: Alignment.center,
-                                                child: Text(
-                                                  'BS',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
+                                                child: Icon(
+                                                  Icons.person,
+                                                  color: Colors.white,
                                                 ),
                                               ),
                                             ),
@@ -208,7 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           spacer.right.xxs,
                                     )),
                                 Container(
-                                    margin: spacer.top.sm,
+                                    margin: spacer.top.xxs,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
